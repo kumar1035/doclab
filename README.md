@@ -78,3 +78,21 @@ No need to install Node.js or PostgreSQL locally.
 ```bash
 git clone https://github.com/kumar1035/doclab.git
 cd doclab
+```
+
+### 2. Start the application
+docker compose up --build
+
+### 3. Access the application
+
+Frontend: http://localhost:3000
+
+Backend API: http://localhost:5000/api/messages
+
+🗄️ Database Verification (PostgreSQL)
+
+docker exec -it postgres psql -U postgres -d doclab
+SELECT * FROM messages;
+\q
+
+### for learning purpose  
