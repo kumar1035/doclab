@@ -48,5 +48,13 @@ doclab/
 └── README.md
 
 
-## 📂 Project Structure
+---
 
+## 🧠 System Architecture
+Browser
+↓
+React Frontend (Nginx)
+↓ /api
+Node.js Backend (Express)
+↓
+PostgreSQL Database
