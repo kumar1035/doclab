@@ -58,3 +58,23 @@ React Frontend (Nginx)
 Node.js Backend (Express)
 ↓
 PostgreSQL Database
+
+---
+
+## ⚙️ Prerequisites
+
+- Docker
+- Docker Desktop
+- Git
+
+No need to install Node.js or PostgreSQL locally.
+
+---
+
+## ▶️ How to Run the Project Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kumar1035/doclab.git
+cd doclab
