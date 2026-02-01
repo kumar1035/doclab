@@ -1,0 +1,90 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./frontend
+    container_name: doclab-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    container_name: doclab-backend
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_NAME: doclab
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: doclab
+    ports:
+      - "5432:5432"
+    volumes:
+    - doclab_postgres_data:/var/lib/postgresql/data
+    - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+volumes:
+  doclab_postgres_data:
+
+
+
+
+
+
+
+
+
+
+# services:
+#   # Backend Service (Node.js API)
+#   backend:
+#     build: ./backend
+#     container_name: backend-api
+#     ports:
+#       - "5000:5000"
+#     environment:
+#       - MONGO_URI=mongodb://database:27017/mydatabase
+#     depends_on:
+#       - database
+#     volumes:
+#       # Mounts local 'backend' folder into container for live-reloading
+#       - ./backend:/app
+#       # This anonymous volume prevents local node_modules from overwriting container's
+#       - /app/node_modules
+
+#        # Frontend Service (React + Nginx)
+#   frontend:
+#     build: ./frontend
+#     container_name: frontend-client
+#     ports:
+#       # Map host port 3000 to container port 80 (where Nginx listens)
+#       - "3000:80" 
+#     depends_on:
+#       - backend
+
+#   # Database Service (MongoDB)
+#   database:
+#     image: mongo:latest
+#     container_name: mongodb
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       # This named volume persists data even if the container is removed
+#       - mongodb_data:/data/db
+
+# # Named volume for data persistence
+# volumes:
+#   mongodb_data:
