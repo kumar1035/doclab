@@ -1,4 +1,4 @@
-# DocLab – Dockerized Full-Stack Message Board with Users
+# DocLab – Dockerized Full-Stack Message Board 
 
 DocLab is a **full-stack web application** built using **React, Node.js, PostgreSQL, and Docker**.  
 The application allows users to post messages, stores them persistently in a relational database, and displays them in real time through a modern web interface.
