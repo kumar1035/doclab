@@ -17,7 +17,7 @@ This project demonstrates **real-world full-stack architecture**, **database rel
 - SQL joins for fetching user-message data
 - Docker & Docker Compose for containerization
 - Persistent database storage using Docker volumes
-- Nginx for serving frontend and proxying API requests
+- Nginx for serving frontend and proxying API requests and make it easy
 
 ---
 
